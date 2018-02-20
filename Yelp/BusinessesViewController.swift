@@ -89,8 +89,8 @@ class BusinessesViewController: UIViewController, UITableViewDataSource, UITable
     func loadMoreDta() {
         var size = businesses.count as Int!
         size = size! + 1
-        Business.searchWithTerm(term: "Thai", offset: size!, sort: .distance, categories: [], deals: true) { (businesses: [Business]!, error: Error!) -> Void in
-            self.businesses = self.businesses + businesses
+        Business.searchWithTerm(term: "Chinese", offset: size!, limit: 20, sort: .distance, categories: [], deals: true) { (businesses: [Business]!, error: Error!) -> Void in
+            self.businesses.append(contentsOf: businesses!)
             self.businessTableView.reloadData()
             self.isMoreDataLoading = false
             
